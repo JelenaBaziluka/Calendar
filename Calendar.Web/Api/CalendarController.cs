@@ -13,6 +13,7 @@ namespace Calendar.Web.Api
         public DateTime Finish {get; set; }
         public int DaysInterval { get; set; }
     }
+    
     public class CalendarController : ApiController
     {
         //daily, every weekday
@@ -22,15 +23,15 @@ namespace Calendar.Web.Api
           //  var x = new List<DateTime>();
          //   x.Add(alarm);
           //  return x;
-        var weekdays = new List<DateTime>();
-        weekdays.Add(DateTime.Now);
-     weekdays.Add(DateTime.Now.AddDays(10));
-           return weekdays;
+        var everyday = new List<DateTime>();
+        everyday.Add(DateTime.Now);
+        everyday.Add(DateTime.Now.AddDays(10));
+        return everyday;
         }
 
         public List<DateTime> Post(EveryNdayssParameter dt)
         {
-            List<DateTime> weekdays = new List<DateTime>();
+            List<DateTime> everyday = new List<DateTime>();
             var date = dt.Start;
 
             while (date < dt.Finish)
@@ -38,14 +39,14 @@ namespace Calendar.Web.Api
 
                 date = date.AddDays(dt.DaysInterval);
 
-                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
-                 {
-                weekdays.Add(date);
+                //if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                // {
+                everyday.Add(date);
 
-                 }
+                //  }
 
             }
-            return weekdays;
+            return everyday;
 
         }
         //public List<DateTime> Post()
