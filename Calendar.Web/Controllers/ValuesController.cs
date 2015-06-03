@@ -13,6 +13,8 @@ namespace Calendar.Web.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            var dates = new List<DateTime>();
+           // dates.Add(DateTime.Now);
             return new string[] { "value1", "value2" };
         }
 

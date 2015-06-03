@@ -163,6 +163,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\CalendarController.cs" />
+    <Compile Include="Api\CalendarWeekDayController.cs" />
+    <Compile Include="Api\List.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />

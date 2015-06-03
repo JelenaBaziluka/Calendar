@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Calendar.Console
+namespace Calendar.Web.Api
 {
-    class var1
+    class List
     {
     }
 }
