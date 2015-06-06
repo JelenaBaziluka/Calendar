@@ -38,10 +38,14 @@ namespace Calendar.Web.Api
 
             while (date < dt.Finish)
             {
-                if (dt.Monday==true)
+                if (dt.Monday == true)
                 {
-                    
+
                     weeklypickeddays.Add(date);
+                    date = date.AddDays(1);
+                }
+                else 
+                {
                     date = date.AddDays(1);
                 }
                   
@@ -50,12 +54,20 @@ namespace Calendar.Web.Api
                    weeklypickeddays.Add(date);
                     date = date.AddDays(1);
               }
-                   return weeklypickeddays;
+              else
+              {
+                  date = date.AddDays(1);
+              }
+              
              
               if(dt.Wednesday==true)
               {
                    weeklypickeddays.Add(date);
                     date = date.AddDays(1);
+              }
+              else
+              {
+                  date = date.AddDays(1);
               }
                    
 
@@ -64,15 +76,27 @@ namespace Calendar.Web.Api
                    weeklypickeddays.Add(date);
                     date = date.AddDays(1);
                }
+               else
+               {
+                   date = date.AddDays(1);
+               }
               if(dt.Friday==true)
               {
                    weeklypickeddays.Add(date);
                     date = date.AddDays(1);
               }
+              else
+              {
+                  date = date.AddDays(1);
+              }
               if(dt.Saturday==true)
               {
                    weeklypickeddays.Add(date);
                     date = date.AddDays(1);
+              }
+              else
+              {
+                  date = date.AddDays(1);
               }
            
 
@@ -81,9 +105,16 @@ namespace Calendar.Web.Api
                    weeklypickeddays.Add(date);
                     date = date.AddDays(1);
               }
+              else
+              {
+                  date = date.AddDays(1);
+              }
+              date = date.AddDays(7 * dt.Weekinterval);
+              date = date.AddDays(1);
+            }
             return weeklypickeddays;
 
-        }
+        
     }
     }
 }
