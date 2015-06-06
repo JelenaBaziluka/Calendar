@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+
 namespace Calendar.Web.Api
 {
     public class WeeklyDataParameter
@@ -13,7 +14,13 @@ namespace Calendar.Web.Api
         public DateTime Finish { get; set; }
 
         public bool Monday { get; set; }
-        public bool Monday { get; set; }
+        public bool Tuesday { get; set; }
+        public bool Wednesday { get; set; }
+        public bool Thursday { get; set; }
+        public bool Friday { get; set; }
+        public bool Saturday { get; set; }
+        public bool Sunday { get; set; }
+        public int Weekinterval {get;set;}
     }
     public class CalendarWeeklyController : ApiController
     {
@@ -24,8 +31,6 @@ namespace Calendar.Web.Api
         }
          public List<DateTime> Post(WeeklyDataParameter dt)
         {
-           
-
                  
              //string [] listofdays = new string [] {Monday, Tuesday, Wednesday, Thusday, Friday, Saturday, Sunday};
             List<DateTime> weeklypickeddays = new List<DateTime>();
@@ -33,15 +38,49 @@ namespace Calendar.Web.Api
 
             while (date < dt.Finish)
             {
-                if (DayOfWeek == Monday)
+                if (dt.Monday==true)
                 {
                     
                     weeklypickeddays.Add(date);
                     date = date.AddDays(1);
                 }
-              if
-            }
+                  
+              if(dt.Tuesday==true)
+              {
+                   weeklypickeddays.Add(date);
+                    date = date.AddDays(1);
+              }
+                   return weeklypickeddays;
+             
+              if(dt.Wednesday==true)
+              {
+                   weeklypickeddays.Add(date);
+                    date = date.AddDays(1);
+              }
+                   
 
+               if(dt.Thursday==true)
+               {
+                   weeklypickeddays.Add(date);
+                    date = date.AddDays(1);
+               }
+              if(dt.Friday==true)
+              {
+                   weeklypickeddays.Add(date);
+                    date = date.AddDays(1);
+              }
+              if(dt.Saturday==true)
+              {
+                   weeklypickeddays.Add(date);
+                    date = date.AddDays(1);
+              }
+           
+
+              if(dt.Sunday==true)
+              {
+                   weeklypickeddays.Add(date);
+                    date = date.AddDays(1);
+              }
             return weeklypickeddays;
 
         }
